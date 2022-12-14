@@ -10,6 +10,7 @@ public class GUI4 extends JFrame
             "Reload Explorer",
             "CMD Command Dialogue",
             "Management Tools",
+            "Prebuilt Commands",
     };
     Container contentpane;
     public GUI4()
@@ -42,6 +43,10 @@ public class GUI4 extends JFrame
                         System.out.println("Management Tools Dialogue.");
                         managementtools.main();
                     }
+                   if(index == 3) {
+                       System.out.println("Prebuilt Commands Dialogue.");
+                       managementtools.main();
+                   }
                }
             }
         });
