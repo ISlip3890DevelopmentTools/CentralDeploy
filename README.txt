@@ -1,0 +1,1 @@
+Create a folder named 'resources' in the same folder with the JAR file in. Do not copy the META-INF or this readme file. Once done, remove this jar.
