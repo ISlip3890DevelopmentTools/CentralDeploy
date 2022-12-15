@@ -18,6 +18,7 @@ public class prebuiltadmincmds extends JFrame{
                 "Prebuilt - Restart Computer",
                 "Prebuilt - Shutdown Computer",
                 "Prebuilt - Logoff Computer",
+
         };
         Container contentpane;
         public prebuiltadmincmds()
