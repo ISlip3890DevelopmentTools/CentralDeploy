@@ -1,5 +1,4 @@
 # *CentralDeploy*
-# *Development Branch!*
 ### <h3>With CentralDeploy don't stress about how to do a Windows command, instead, just press a button.</h3>
 <div id="infoslogan" align="center">
 <h4>CentralDeploy allows a user or administrator to easily be able to access commands in the comfort of one program.</h4>
