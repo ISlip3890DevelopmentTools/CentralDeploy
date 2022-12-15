@@ -11,6 +11,7 @@ public class GUI4 extends JFrame
             "CMD Command Dialogue",
             "Management Tools",
             "Prebuilt Commands",
+            "Powershell Command Dialogue",
     };
     Container contentpane;
     public GUI4()
@@ -45,7 +46,11 @@ public class GUI4 extends JFrame
                     }
                    if(index == 3) {
                        System.out.println("Prebuilt Commands Dialogue.");
-                       managementtools.main();
+                       prebuiltcmds.main();
+                   }
+                   if(index == 4) {
+                       System.out.println("Powershell Command Dialogue.");
+                       psinternal.psinternal();
                    }
                }
             }

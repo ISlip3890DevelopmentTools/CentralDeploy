@@ -7,6 +7,14 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+
+import static org.apache.commons.io.FileUtils.copyFile;
+import static org.apache.commons.io.FileUtils.moveFile;
 
 public class prebuildstandarduser extends JFrame{
     JList list;
@@ -17,8 +25,7 @@ public class prebuildstandarduser extends JFrame{
             "Prebuilt - Traceroute",
             "Prebuilt - Open a website",
             "Prebuilt - Open Drive Letter",
-            "Prebuilt - Map Drive Location",
-            "Prebuilt - Copy Files (IN DEVELOPMENT)",
+//            "Prebuilt - Copy Files (IN DEVELOPMENT)",
     };
     Container contentpane;
     public prebuildstandarduser()
@@ -161,47 +168,9 @@ public class prebuildstandarduser extends JFrame{
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if (index == 6) {
-                        try {
-                            System.out.println("Launching Prebuilt Command - Map Drive Location");
-                            try {
-                                String drivelocation = JOptionPane.showInputDialog("Input Drive Location: (//example.local/mapshare/home) ");
-                                String driveletter = JOptionPane.showInputDialog("Which Letter should it be mapped to? (E: C: D: A:): ");
-                                String domain = JOptionPane.showInputDialog("If you are using a domain, enter the name here (e.g example.local, Blank = Not Required): ");
-                                String username = JOptionPane.showInputDialog("Please enter your username (Blank = Not Required): ");
-                                String password = JOptionPane.showInputDialog("Please enter your password (Blank = Not Required): ");
 
-                                if (domain == " " || domain == "" || domain == null) {
-                                    domain = "WORKGROUP";
-                                } else {
-                                    domain = domain;
-                                }
-                                String cmdoutput1 = "net use " + driveletter + " " + drivelocation + " USER:" + domain + "/" + "" + username + "" + "/" + "" + password + " /PERSISTANT:NO" + "\"";
-
-                                String cmdoutput = cmdoutput1.replace("/", "\\");
-                                String cmdoutput2 = cmdoutput1.replace("\\PERSISTANT:", "/PERSISTANT:");
-                                try {
-                                    if (drivelocation == null || driveletter == null) {
-                                        JOptionPane.showMessageDialog(null, "You have cancelled the command. ", "Information", JOptionPane.WARNING_MESSAGE);
-                                        return;
-                                    } else {
-                                        Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
-                                    }
-                                } catch (Exception ex) {
-                                    JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
-                                }
-                            } catch (Exception ex) {
-                                JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
-                            }
-                        } catch (Exception ex) {
-                            JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                    if (index == 7) {
-                        JOptionPane.showMessageDialog(null, "This command is broken. Awaiting repair. On option 8 in code.", "Information", JOptionPane.WARNING_MESSAGE);
-                    return;
-                    }
-                    if (index == 8) {
+                    // NOT TESTED. IN DEVELOPMENT.
+                     if (index == 900) {
                         try {
                             try {
                                 JFileChooser chooser = new JFileChooser();
@@ -211,7 +180,7 @@ public class prebuildstandarduser extends JFrame{
 
                                 chooser.setDialogTitle("Select Files to Copy");
                                 if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                                    File f = chooser.getSelectedFile();
+                                    java.io.File f = chooser.getSelectedFile();
                                     System.err.println(f.getPath());
                                 }
 //                                if(chooser == null){
@@ -227,7 +196,7 @@ public class prebuildstandarduser extends JFrame{
                                 dirchoose.setFileHidingEnabled(false);
                                 dirchoose.setDialogTitle("Select the location for files to be copied to");
                                 if (dirchoose.showOpenDialog(null) == JFileChooser.DIRECTORIES_ONLY) {
-                                    File f = chooser.getSelectedFile();
+                                    java.io.File f = chooser.getSelectedFile();
                                     System.err.println(f.getPath());
                                 }
 //                                if(dirchoose == null){
@@ -251,7 +220,7 @@ public class prebuildstandarduser extends JFrame{
                                             TrayIcon trayIcon = new TrayIcon(image, "CentralDeploy");
                                             trayIcon.setToolTip("CentralDeploy - File Transfer");
                                             tray.add(trayIcon);
-                                            File f = chooser.getSelectedFile();
+                                            java.io.File f = chooser.getSelectedFile();
                                             if (f.isFile()) {
                                                 // copy file
                                                 trayIcon.displayMessage("CentralDeploy - File Transfer", "File Transfer has started. Please wait...", TrayIcon.MessageType.INFO);
@@ -273,6 +242,7 @@ public class prebuildstandarduser extends JFrame{
                                             }
 
                                         }
+
                                     } catch (Exception ex) {
                                         JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                                     }
