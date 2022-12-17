@@ -1,4 +1,4 @@
-package saw.centraldeploy;
+package saw.centraldeploy.commands;
 
 import javax.swing.*;
 import java.io.IOException;

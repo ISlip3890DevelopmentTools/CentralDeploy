@@ -1,5 +1,7 @@
 package saw.centraldeploy.prebuiltcmdsscripts;
-import saw.centraldeploy.*;
+
+import saw.centraldeploy.autoscripts.getadmincmd;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -18,6 +20,7 @@ public class prebuiltadmincmds extends JFrame{
                 "Prebuilt - Restart Computer",
                 "Prebuilt - Shutdown Computer",
                 "Prebuilt - Logoff Computer",
+                "Prebuilt - Administrative Command Dialogue"
 
         };
         Container contentpane;
@@ -40,6 +43,8 @@ public class prebuiltadmincmds extends JFrame{
                             try {
                                 System.out.println("Launching Prebuilt Command - Make User Administrator Role.");
                                 String cmdinput = JOptionPane.showInputDialog("Input Username:");
+
+                                String cmdoutput1 = "";
                                 String cmdoutput = "net localgroup Administrators " + cmdinput + " /add";
 
                                 try {
@@ -186,8 +191,22 @@ public class prebuiltadmincmds extends JFrame{
                             } catch (Exception ex) {
                                 JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                             }
-                        }
 
+                        }
+                        if (index == 8) {
+                            try {
+                                System.out.println("Launching Prebuilt Command - Administrative Command Prompt");
+
+                                try {
+                                    getadmincmd.main();
+                                } catch (Exception ex) {
+                                    JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                                }
+                            } catch (Exception ex) {
+                                JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                            }
+
+                        }
 
                     }
                 }

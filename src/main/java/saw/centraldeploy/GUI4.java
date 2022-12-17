@@ -1,10 +1,16 @@
 package saw.centraldeploy;
 
+import saw.centraldeploy.commands.*;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class GUI4 extends JFrame
+
 {
+
     JList list;
     String[] listColorNames = {
             "Reload Explorer",
@@ -12,6 +18,7 @@ public class GUI4 extends JFrame
             "Management Tools",
             "Prebuilt Commands",
             "Powershell Command Dialogue",
+            "Help Menu",
     };
     Container contentpane;
     public GUI4()
@@ -52,6 +59,10 @@ public class GUI4 extends JFrame
                        System.out.println("Powershell Command Dialogue.");
                        psinternal.psinternal();
                    }
+                   if(index == 5) {
+                       System.out.println("Help Command Dialogue.");
+                       helpmenu.main();
+                   }
                }
             }
         });
@@ -60,10 +71,12 @@ public class GUI4 extends JFrame
     }
     public static void main(String[] args)
     {
+
         GUI4 test = new GUI4();
         test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         test.setResizable(false);
         test.setLocationRelativeTo(null);
 
     }
-}  
+
+}

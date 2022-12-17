@@ -1,4 +1,4 @@
-package saw.centraldeploy;
+package saw.centraldeploy.commands;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +13,7 @@ public class prebuiltcmds extends JFrame
         String[] listColorNames = {
                 "Prebuilt Administrator User",
                 "Prebuilt Standard User",
+                "Prebuilt - Winget Commands",
         };
         Container contentpane;
         public prebuiltcmds()
@@ -49,6 +50,15 @@ public class prebuiltcmds extends JFrame
                                 JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                             }
                         }
+                            if(index == 2) {
+
+                                try {
+                                    System.out.println("Prebuilt Winget Commands");
+                                    saw.centraldeploy.prebuiltcmdsscripts.prebuiltwingetcmds.main();
+                                } catch (Exception ex) {
+                                    JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                                }
+                            }
 
 
                     }

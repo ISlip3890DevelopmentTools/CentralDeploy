@@ -3,7 +3,7 @@ Verbose Creator - True or false in config
  */
 
 
-package saw.centraldeploy;
+package saw.centraldeploy.commands;
 
 import javax.swing.*;
 import java.io.BufferedReader;

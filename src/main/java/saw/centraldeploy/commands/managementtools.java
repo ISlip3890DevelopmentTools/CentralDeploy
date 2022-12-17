@@ -1,8 +1,9 @@
-package saw.centraldeploy;
-import saw.centraldeploy.*;
+package saw.centraldeploy.commands;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 public class managementtools extends JFrame
 {
     JList list;
@@ -33,7 +34,8 @@ public class managementtools extends JFrame
             "Windows Troubleshooting",
             "Services",
             "Netplwiz",
-            "Disk Cleanup"
+            "Disk Cleanup",
+            "Windows Terminal"
     };
     Container contentpane;
     public managementtools()
@@ -270,10 +272,24 @@ public class managementtools extends JFrame
                         } catch (Exception ex) {
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
+}
+                    if(index == 27) {
+                        if (!System.getProperties().getProperty("os.name").contains("Windows 11")) {
+                            JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + "Please check your Windows Version. Windows 11 is required to use this option. Current Windows Version: " + System.getProperties().getProperty("os.name") + ". ", "ERROR", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }else {
+                            System.out.println("Launching Windows 11 Terminal.");
+                            try {
+                                Runtime.getRuntime().exec("cmd /c start wt.exe");
+                            } catch (Exception ex) {
+                                JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                            }
+                            }
+                        }
                     }
 
                 }
-            }
+
         });
         setSize(300, 300);
         setVisible(true);
