@@ -37,3 +37,5 @@
  </div>
  
  ---
+ <h2> Statistics *As of 17th December 2022*</h2>
+<a href="https://wakatime.com/badge/user/ad337d16-5e7e-4a74-8270-e3e981e055ac/project/5e7af98f-e7a0-454b-8edf-03e922ba395e"><img src="https://wakatime.com/badge/user/ad337d16-5e7e-4a74-8270-e3e981e055ac/project/5e7af98f-e7a0-454b-8edf-03e922ba395e.svg" alt="wakatime"></a>
