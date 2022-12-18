@@ -6,6 +6,8 @@
 </div>
  <div id="info" align="center">
 <img src="https://komarev.com/ghpvc/?username=ISlip3890DevelopmentToolsCentralDeploy&style=flat-square&color=blue" alt=""/> 
+<h3>Check out the <a href="https://github.com/ISlip3890DevelopmentTools/CentralDeploy/wiki">Wiki Documentation</a> for CentralDeploy! </h3>
+
 </div>
 
 ---
