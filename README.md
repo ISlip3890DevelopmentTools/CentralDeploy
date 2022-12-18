@@ -6,6 +6,8 @@
 </div>
  <div id="info" align="center">
 <img src="https://komarev.com/ghpvc/?username=ISlip3890DevelopmentToolsCentralDeploy&style=flat-square&color=blue" alt=""/> 
+
+<a href="https://wakatime.com/badge/github/ISlip3890DevelopmentTools/CentralDeploy"><img src="https://wakatime.com/badge/github/ISlip3890DevelopmentTools/CentralDeploy.svg" alt="wakatime"></a>
 <h3>Check out the <a href="https://github.com/ISlip3890DevelopmentTools/CentralDeploy/wiki">Wiki Documentation</a> for CentralDeploy! </h3>
 
 </div>
@@ -39,5 +41,4 @@
  </div>
  
  ---
- <h2> Statistics *As of 17th December 2022*</h2>
-<a href="https://wakatime.com/badge/github/ISlip3890DevelopmentTools/CentralDeploy"><img src="https://wakatime.com/badge/github/ISlip3890DevelopmentTools/CentralDeploy.svg" alt="wakatime"></a>
+
