@@ -20,7 +20,7 @@ public class prebuiltadmincmds extends JFrame{
                 "Prebuilt - Restart Computer",
                 "Prebuilt - Shutdown Computer",
                 "Prebuilt - Logoff Computer",
-                "Prebuilt - Administrative Command Dialogue"
+                "Prebuilt - Administrative Command Dialogue",
 
         };
         Container contentpane;
@@ -139,12 +139,15 @@ public class prebuiltadmincmds extends JFrame{
                         if (index == 4) {
                             try {
                                 System.out.println("Launching Prebuilt Command - Lock Computer.");
+                                if(JOptionPane.showOptionDialog(null, "Press YES to continue. ", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null) == JOptionPane.YES_OPTION) {
 
-                                try {
-                                    String cmdoutput = "rundll32.exe user32.dll,LockWorkStation";
-                                    Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
-                                } catch (Exception ex) {
-                                    JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                                    try {
+                                        String cmdoutput = "rundll32.exe user32.dll,LockWorkStation";
+                                        Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
+
+                                    } catch (Exception ex) {
+                                        JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                                    }
                                 }
                             } catch (Exception ex) {
                                 JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -155,9 +158,11 @@ public class prebuiltadmincmds extends JFrame{
                                 System.out.println("Launching Prebuilt Command - Restart Computer.");
 
                                 try {
-                                    String cmdoutput = "shutdown -r -t 0";
-                                    Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
-                                } catch (Exception ex) {
+                                    if(JOptionPane.showOptionDialog(null, "Press YES to continue. ", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null) == JOptionPane.YES_OPTION) {
+                                        String cmdoutput = "shutdown -r -t 0";
+                                        Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
+                                    }
+                                    } catch (Exception ex) {
                                     JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                                 }
                             } catch (Exception ex) {
@@ -169,9 +174,11 @@ public class prebuiltadmincmds extends JFrame{
                                 System.out.println("Launching Prebuilt Command - Shutdown Computer.");
 
                                 try {
-                                    String cmdoutput = "shutdown -s -t 0";
-                                    Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
-                                } catch (Exception ex) {
+                                    if(JOptionPane.showOptionDialog(null, "Press YES to continue. ", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null) == JOptionPane.YES_OPTION) {
+                                        String cmdoutput = "shutdown -s -t 0";
+                                        Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
+                                    }
+                                    } catch (Exception ex) {
                                     JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                                 }
                             } catch (Exception ex) {
@@ -183,9 +190,11 @@ public class prebuiltadmincmds extends JFrame{
                                 System.out.println("Launching Prebuilt Command - Logoff Computer.");
 
                                 try {
-                                    String cmdoutput = "shutdown -l";
-                                    Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
-                                } catch (Exception ex) {
+                                    if(JOptionPane.showOptionDialog(null, "Press YES to continue. ", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null) == JOptionPane.YES_OPTION) {
+                                        String cmdoutput = "shutdown -l";
+                                        Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "\"" + "echo Please note: This prompt depends on your USER rank. (e.g Administrator) && echo Command Received from CentralDeploy: " + cmdoutput + "\n \n &&" + "echo ----------------------------------" + "&&" + cmdoutput + "\"");
+                                    }
+                                    } catch (Exception ex) {
                                     JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                                 }
                             } catch (Exception ex) {
@@ -207,6 +216,9 @@ public class prebuiltadmincmds extends JFrame{
                             }
 
                         }
+
+
+
 
                     }
                 }

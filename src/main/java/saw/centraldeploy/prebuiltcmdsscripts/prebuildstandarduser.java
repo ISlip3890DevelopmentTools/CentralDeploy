@@ -1,5 +1,7 @@
 package saw.centraldeploy.prebuiltcmdsscripts;
 
+import saw.centraldeploy.commands.listinstalled;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -14,7 +16,8 @@ public class prebuildstandarduser extends JFrame{
             "Prebuilt - Traceroute",
             "Prebuilt - Open a website",
             "Prebuilt - Open Drive Letter",
-//            "Prebuilt - Copy Files (IN DEVELOPMENT)",
+            "Prebuilt - List installed Apps",
+            "Prebuilt - Copy Files/Directories",
     };
     Container contentpane;
     public prebuildstandarduser()
@@ -157,9 +160,31 @@ public class prebuildstandarduser extends JFrame{
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-
+                    if (index == 6) {
+                        try {
+                            System.out.println("Launching Prebuilt Command - List installed Apps");
+                            try {
+                                listinstalled.main();
+                            } catch (Exception ex) {
+                                JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    if (index == 7) {
+                        try {
+                            System.out.println("Launching Prebuilt Command - Copy Files/Directories");
+                            try {
+                                saw.centraldeploy.commands.FileManager.main();
+                            } catch (Exception ex) {
+                                JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
                 }
-
 
 
             }

@@ -35,7 +35,8 @@ public class managementtools extends JFrame
             "Services",
             "Netplwiz",
             "Disk Cleanup",
-            "Windows Terminal"
+            "Windows Terminal",
+            "Run"
     };
     Container contentpane;
     public managementtools()
@@ -47,13 +48,12 @@ public class managementtools extends JFrame
         list.setSelectedIndex(0);
         list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         contentpane.add(new JScrollPane(list));
-        list.addMouseListener(new MouseAdapter()
-        {
+        list.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                JList list = (JList)e.getSource();
-                if(e.getClickCount() == 2) {
+                JList list = (JList) e.getSource();
+                if (e.getClickCount() == 2) {
                     int index = list.locationToIndex(e.getPoint());
-                    if(index == 0) {
+                    if (index == 0) {
                         try {
                             System.out.println("Launching Disk Management.");
                             Runtime.getRuntime().exec("cmd /c start diskmgmt.msc");
@@ -62,7 +62,7 @@ public class managementtools extends JFrame
                         }
 
                     }
-                    if(index == 1) {
+                    if (index == 1) {
                         System.out.println("Launching Device Management.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start devmgmt.msc");
@@ -70,7 +70,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 2) {
+                    if (index == 2) {
                         System.out.println("Launching System Information.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start msinfo32.exe");
@@ -78,7 +78,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 3) {
+                    if (index == 3) {
                         System.out.println("Launching Group Policy Editor.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start gpedit.msc");
@@ -86,7 +86,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 4) {
+                    if (index == 4) {
                         System.out.println("Launching Event Viewer.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start eventvwr.msc");
@@ -94,7 +94,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 5) {
+                    if (index == 5) {
                         System.out.println("Launching Performance Monitor.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start perfmon.msc");
@@ -102,7 +102,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 6) {
+                    if (index == 6) {
                         System.out.println("Launching System Configuration.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start msconfig.exe");
@@ -110,7 +110,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 7) {
+                    if (index == 7) {
                         System.out.println("Launching System Restore.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start rstrui.exe");
@@ -118,7 +118,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 8) {
+                    if (index == 8) {
                         System.out.println("Launching Task Manager.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start taskmgr.exe");
@@ -126,7 +126,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 9) {
+                    if (index == 9) {
                         System.out.println("Launching Windows Firewall.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start wf.msc");
@@ -134,7 +134,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 10) {
+                    if (index == 10) {
                         System.out.println("Launching Windows Update.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start ms-settings:windowsupdate");
@@ -142,7 +142,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 11) {
+                    if (index == 11) {
                         System.out.println("Launching Windows Defender.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start ms-settings:windowsdefender");
@@ -151,7 +151,7 @@ public class managementtools extends JFrame
                         }
                     }
 
-                    if(index == 12) {
+                    if (index == 12) {
                         System.out.println("Launching Windows Security Center.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start wscui.cpl");
@@ -159,7 +159,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if (index == 13){
+                    if (index == 13) {
                         System.out.println("Launching Settings.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start ms-settings:");
@@ -167,7 +167,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if (index == 14){
+                    if (index == 14) {
                         System.out.println("Launching Control Panel.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start control.exe");
@@ -175,7 +175,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if (index == 15){
+                    if (index == 15) {
                         System.out.println("Launching Registry Editor.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start regedit.exe");
@@ -183,7 +183,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if (index == 16){
+                    if (index == 16) {
                         System.out.println("Launching Command Prompt.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start cmd.exe");
@@ -191,7 +191,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 17) {
+                    if (index == 17) {
                         System.out.println("Launching Windows PowerShell.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start powershell.exe");
@@ -199,7 +199,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 18) {
+                    if (index == 18) {
                         System.out.println("Launching Windows PowerShell ISE.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start powershell_ise.exe");
@@ -207,7 +207,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 19) {
+                    if (index == 19) {
                         System.out.println("Launching Windows Explorer.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start explorer.exe");
@@ -216,7 +216,7 @@ public class managementtools extends JFrame
                         }
                     }
 
-                    if(index == 20) {
+                    if (index == 20) {
                         System.out.println("Launching Network Connections.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start ncpa.cpl");
@@ -225,7 +225,7 @@ public class managementtools extends JFrame
                         }
                     }
 
-                    if(index == 21) {
+                    if (index == 21) {
                         System.out.println("Launching Disk Defragmenter.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start dfrgui.exe");
@@ -233,7 +233,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 22) {
+                    if (index == 22) {
                         System.out.println("Launching Windows Memory Diagnostics.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start mdsched.exe");
@@ -241,7 +241,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 23) {
+                    if (index == 23) {
                         System.out.println("Launching Windows Troubleshooter.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start ms-settings:troubleshoot");
@@ -249,7 +249,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 24) {
+                    if (index == 24) {
                         System.out.println("Launching Services.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start services.msc");
@@ -257,7 +257,7 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 25) {
+                    if (index == 25) {
                         System.out.println("Launching Netplwiz.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start netplwiz.exe");
@@ -265,28 +265,37 @@ public class managementtools extends JFrame
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    if(index == 26) {
+                    if (index == 26) {
                         System.out.println("Launching Disk Cleanup.");
                         try {
                             Runtime.getRuntime().exec("cmd /c start cleanmgr.exe");
                         } catch (Exception ex) {
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
-}
-                    if(index == 27) {
+                    }
+                    if (index == 27) {
                         if (!System.getProperties().getProperty("os.name").contains("Windows 11")) {
                             JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + "Please check your Windows Version. Windows 11 is required to use this option. Current Windows Version: " + System.getProperties().getProperty("os.name") + ". ", "ERROR", JOptionPane.ERROR_MESSAGE);
                             return;
-                        }else {
+                        } else {
                             System.out.println("Launching Windows 11 Terminal.");
                             try {
                                 Runtime.getRuntime().exec("cmd /c start wt.exe");
                             } catch (Exception ex) {
                                 JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
                             }
-                            }
                         }
                     }
+                    if (index == 28) {
+                        System.out.println("Launching Run");
+                        try {
+                            Runtime.getRuntime().exec("cmd /c c:\\windows\\system32\\rundll32.exe shell32.dll,#61");
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+
 
                 }
 

@@ -44,7 +44,7 @@ public class prebuiltcmds extends JFrame
                         if(index == 1) {
 
                             try {
-                                System.out.println("Prebuilt Administrator User");
+                                System.out.println("Prebuilt Standard User");
                                 saw.centraldeploy.prebuiltcmdsscripts.prebuildstandarduser.main();
                             } catch (Exception ex) {
                                 JOptionPane.showMessageDialog(null, "It seems an error has occurred. \n Error is: \n " + ex, "ERROR", JOptionPane.ERROR_MESSAGE);
